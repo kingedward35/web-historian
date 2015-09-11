@@ -58,16 +58,6 @@ exports.serveAssets = function(res, asset, callback) {
       exports.sendResponse(res, data);
     }
   });
-  // fs.readFile(asset, "utf-8", function(err, data) {
-  //   if (err) {
-  //     res.writeHeader(404, "Not Found", headers);
-  //     res.end();
-  //   } else {
-  //     res.writeHeader(200, "Success", headers);
-  //     res.end(data);
-  //   }
-  // });
-
 };
 
 

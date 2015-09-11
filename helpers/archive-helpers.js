@@ -47,7 +47,6 @@ exports.isUrlInList = function(url, callback) {
 exports.addUrlToList = function(url, callback) {
   fs.appendFile(exports.paths.list, url, function(data) {
     callback(data);
-    //console.log('The url: ' + url + ' was appeneded!');
   });
 };
 
@@ -59,20 +58,7 @@ exports.isUrlArchived = function(url, callback) {
 };
 
 exports.downloadUrls = function(url) {
-  //var file = 
-  fs.createWriteStream(exports.paths.archivedSites + '/' + url[0]);
-  fs.createWriteStream(exports.paths.archivedSites + '/' + url[]);
-  // var request = http.get('http://' + url, function(response) {
-  //     response.pipe(file);
-  //     file.on('finish', function() {
-  //       file.close(callback); // close() is async, call cb after close completes.
-  //     });
-  //   });
-   //});//.on('error', function(err) {
-  //   console.log(err); // Handle errors
-  //   fs.unlink(exports.paths.archivedSites); // Delete the file async. (But we don't check the result)
-  //   if (callback) {
-  //     callback(err.message);
-  //   }
-  // });
+  _.each(url, function(urls) {
+    fs.createWriteStream(exports.paths.archivedSites + '/' + urls);
+  });
 };
