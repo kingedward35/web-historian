@@ -127,12 +127,12 @@ describe("archive helpers", function(){
 
       archive.isUrlArchived("www.example.com", function (exists) {
         expect(exists);
-        if (++counter == total) { done() }
+        if (++counter == total) { done(); }
       });
 
       archive.isUrlArchived("www.notarchived.com", function (exists) {
         expect(!exists);
-        if (++counter == total) { done() }
+        if (++counter == total) { done();}
       });
     });
   });
@@ -146,7 +146,7 @@ describe("archive helpers", function(){
       setTimeout(function () {
         expect(fs.readdirSync(archive.paths.archivedSites)).to.deep.equal(urlArray);
         done();
-      }, 25);
+      }, 500);
     });
   });
 });
